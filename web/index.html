@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--
+    Versão WEB do app (usada só para testes rápidos no navegador; o alvo do
+    TCC é o Android).
+
+    Se o app for publicado em um subcaminho do site (ex.: /app/), o valor
+    abaixo deve indicar esse caminho, começando e terminando com "/".
+    O marcador $FLUTTER_BASE_HREF é trocado automaticamente pelo valor do
+    parâmetro `--base-href` do comando `flutter build`.
+    Mais detalhes: https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/base
+  -->
+  <base href="$FLUTTER_BASE_HREF">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="Banco de Talentos Geolocalizado para a Indústria Audiovisual">
+
+  <!-- Ícones e configurações para iPhone/iPad -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="audiovisual_app">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Ícone da aba do navegador -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>Talentos AV</title>
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <!--
+    Script que carrega o app Flutter no navegador. Pode ser personalizado
+    (ex.: mostrar uma animação de carregamento).
+    Mais detalhes: https://docs.flutter.dev/platform-integration/web/initialization
+  -->
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>

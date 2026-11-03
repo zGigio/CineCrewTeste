@@ -1,0 +1,16 @@
+# Arquivos do Android que não vão para o repositório: gerados na compilação,
+# específicos de cada computador (local.properties) ou sensíveis (chaves).
+gradle-wrapper.jar
+/.gradle
+/captures/
+/gradlew
+/gradlew.bat
+/local.properties
+GeneratedPluginRegistrant.java
+.cxx/
+
+# Nunca compartilhe publicamente a chave de assinatura do app (keystore).
+# Mais informações: https://flutter.dev/to/reference-keystore
+key.properties
+**/*.keystore
+**/*.jks

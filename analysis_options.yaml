@@ -1,0 +1,26 @@
+# =============================================================================
+# analysis_options.yaml
+# -----------------------------------------------------------------------------
+# Configura o ANALISADOR ESTÁTICO do Dart: ele lê o código sem executá-lo e
+# aponta erros, avisos e más práticas. Para rodar: flutter analyze
+# =============================================================================
+
+# Ativa o conjunto de regras recomendadas pelo time do Flutter.
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  # Arquivos gerados automaticamente não são analisados
+  # (não foram escritos à mão, então não faz sentido cobrar estilo deles).
+  exclude:
+    - "**/*.config.dart"
+    - build/**
+    - android/**
+    - ios/**
+    - web/**
+
+linter:
+  # Regras extras ou desativadas em relação ao conjunto recomendado.
+  # Lista completa de regras: https://dart.dev/lints
+  rules:
+    # Prefere aspas simples nas strings, padronizando o código.
+    prefer_single_quotes: true

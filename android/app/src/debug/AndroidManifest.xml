@@ -1,0 +1,9 @@
+<!--
+  AndroidManifest.xml (somente modo DEBUG / desenvolvimento)
+  Estas configurações são MESCLADAS ao manifesto principal apenas quando o
+  app roda em modo de desenvolvimento (flutter run).
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Internet: o Flutter usa para hot reload, breakpoints e depuração. -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+</manifest>

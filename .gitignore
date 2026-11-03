@@ -1,0 +1,53 @@
+# =============================================================================
+# .gitignore
+# Lista de arquivos e pastas que o Git deve IGNORAR (não vão para o GitHub):
+# arquivos temporários, gerados na compilação ou com dados sensíveis.
+# =============================================================================
+
+# Diversos (arquivos temporários de ferramentas e sistemas)
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
+
+# Arquivos do IntelliJ / Android Studio
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# A pasta .vscode guarda configurações do VS Code que podem ser úteis no
+# repositório, por isso a linha abaixo fica comentada (a pasta NÃO é ignorada).
+#.vscode/
+
+# Arquivos gerados pelo Flutter / Dart / Pub (recriados com flutter pub get)
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+/coverage/
+
+# Símbolos de depuração
+app.*.symbols
+
+# Mapas de ofuscação do código
+app.*.map.json
+
+# Pastas onde o Android Studio coloca os arquivos compilados
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+# Configurações locais com as chaves do Supabase (NUNCA enviar ao GitHub)
+env.json

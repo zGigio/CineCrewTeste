@@ -1,0 +1,91 @@
+<!--
+  =============================================================================
+  AndroidManifest.xml (versão principal / produção)
+  .............................................................................
+  "Carteira de identidade" do app para o Android. Declara:
+    - as PERMISSÕES que o app precisa (internet, GPS...);
+    - o nome exibido no celular e o ícone;
+    - a Activity (tela nativa) que hospeda o Flutter.
+  =============================================================================
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Acesso à internet: necessário para o Dio conversar com a API do
+         back-end. Sem esta linha, a versão final (release) não conecta. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Localização PRECISA (GPS): usada para obter a posição exata do
+         usuário e buscar profissionais próximos. -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <!-- Localização APROXIMADA (rede/Wi-Fi): o Android exige que ela seja
+         declarada junto com a precisa. -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <!-- label: nome exibido abaixo do ícone na tela do celular.
+         icon: ícone do app (pasta res/mipmap-*). -->
+    <application
+        android:label="CineCrew"
+        android:name="${applicationName}"
+        android:icon="@mipmap/ic_launcher">
+
+        <!-- MainActivity: a única tela nativa do app. Todo o conteúdo
+             Flutter é desenhado dentro dela.
+             - exported="true": pode ser aberta pelo launcher do Android;
+             - launchMode="singleTop": evita abrir duas cópias do app;
+             - configChanges: o Flutter trata sozinho rotações, tema, etc.;
+             - windowSoftInputMode="adjustResize": a tela se ajusta quando o
+               teclado aparece. -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:taskAffinity=""
+            android:theme="@style/LaunchTheme"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="adjustResize">
+            <!-- Tema aplicado enquanto o Flutter carrega (tela de abertura).
+                 Depois, define o fundo atrás da interface Flutter. -->
+            <meta-data
+              android:name="io.flutter.embedding.android.NormalTheme"
+              android:resource="@style/NormalTheme"
+              />
+            <!-- Indica que esta é a tela inicial (aparece no menu de apps). -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <!-- Não apagar: usado pelo Flutter para gerar o arquivo
+             GeneratedPluginRegistrant.java (registro dos plugins nativos). -->
+        <meta-data
+            android:name="flutterEmbedding"
+            android:value="2" />
+    </application>
+
+    <!-- Apps que o nosso app precisa "enxergar" no Android 11+:
+         - PROCESS_TEXT: menu "traduzir" ao selecionar um texto;
+         - VIEW https: navegador/leitor de PDF para abrir o currículo;
+         - VIEW tel / mailto: ligar ou mandar e-mail ao candidato
+           (todos usados pelo pacote url_launcher). -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.PROCESS_TEXT"/>
+            <data android:mimeType="text/plain"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <data android:scheme="https"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <data android:scheme="tel"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <data android:scheme="mailto"/>
+        </intent>
+    </queries>
+</manifest>

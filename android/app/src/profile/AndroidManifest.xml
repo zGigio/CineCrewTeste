@@ -1,0 +1,7 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Manifesto do modo PROFILE (medição de desempenho).
+         A permissão de INTERNET é necessária durante o desenvolvimento: o
+         Flutter a usa para se comunicar com o app em execução (pontos de
+         parada, hot reload etc.). -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+</manifest>
